@@ -1,0 +1,12 @@
+name: Main Branch Pipeline
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+run-name: ${{ github.sha }} | ${{ github.event.head_commit.message }}
+jobs:
+  call-workflow:
+    uses: siddevsecops007/github-reusable-actions/.github/workflows/ci-main-branch.yaml@main
+    with:
+      componentName: user
